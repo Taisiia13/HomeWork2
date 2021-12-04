@@ -4,7 +4,7 @@ namespace HomeWork2
 {
     class Program
     {
-        static double number1(double A, double B)
+        static double Number1(double A, double B)
         {
             if (A == B)
             {
@@ -20,66 +20,67 @@ namespace HomeWork2
             }
         }
 
-        static string CoordinateGuarter(double X, double Y)
+        static int CoordinateGuarter(double X, double Y)
         {
             if (X > 0 && Y > 0)
             { 
-                return "1";
+                return 1;
             } 
             else if (X < 0 && Y > 0)
             { 
-                return "2"; 
+                return 2; 
             }
             else if  (X < 0 && Y < 0)
             { 
-                return "3"; 
+                return 3; 
             }
             else if (X > 0 && Y < 0)
             { 
-                return "4";
+                return 4;
             }
             else 
             { 
-                return "Point to lie on the axis"; 
+                return 0; 
             }
         }
 
-        static string Comparison(double a, double b, double c)
+        static (double, double, double) Comparison(double a, double b, double c)
         {
             if (a > c && c > b)
-                return $"{b},{c},{a}";
+                return (b, c, a);
 
             if (a > b && b > c)
-                return $"{c},{b},{a}";
+                return (c, b, a);
 
             if (c > b && b > a)
-                return $"{a},{b},{c}";
+                return(a, b, c);
 
             if (c > a && a > b)
-                return $"{b},{a},{c}";
+                return (b, a, c);
 
             if (b > a && a > c)
-                return $"{c},{a},{b}";
+                return (c, a, b);
 
             if (b > c && c > a)
-                return $"{a},{c},{b}";
+                return (a, c, b);
 
-            return "no result";
+            return (0, 0, 0);
+            
         }
 
-        static string discriminant(double a, double b, double c)
+        static (double, double) Discriminant(double a, double b, double c)
         {
             double d = Math.Pow(b ,2) - 4 * a * c;
-            if (d > 0 || d == 0)
+            if (d >= 0)
             {
                 double x1 = (-b + Math.Sqrt(d)) / (2 * a);
                 double x2 = (-b - Math.Sqrt(d)) / (2 * a);
-                return $"X1={x1}  X2={x2}";
+                return (x1, x2);
             }
-            if(d<0)
-                return "There is no root equation";
-
-            return "";           
+            else
+            {
+                return (0, 0);
+            }
         }          
 
         static string PrintStringNumber(int a)
@@ -197,9 +198,9 @@ namespace HomeWork2
 
             //Console.WriteLine(CoordinateGuarter(2,3));
 
-            //Console.WriteLine(Comparison(2,3,8));
+            Console.WriteLine(Comparison(5,3,8));
 
-            Console.WriteLine(discriminant(5, 6, 8));
+            //Console.WriteLine(Discriminant(5, 6, 8));
 
             //Console.WriteLine(PrintStringNumber(36));
 
